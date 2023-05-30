@@ -51,7 +51,7 @@ class ClosestPlaceAPIView(APIView):
 
         if closest_place:
             serializer = PlaceSerializer(closest_place)
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(
                 {"message": "No places found."},
